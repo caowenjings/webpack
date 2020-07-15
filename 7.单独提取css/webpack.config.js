@@ -21,7 +21,7 @@ module.exports = {
                     miniCssExtractPlugin.loader,
                     "css-loader",//将css文件整和到js文件
                     {
-                        loader: "postcss-loader",
+                        loader: "postcss-loader",//css兼容性处理
                         options: {
                             ident: 'postcss',
                             plugins: () => [//postcss的插件
