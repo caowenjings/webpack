@@ -16,10 +16,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             minify: {
-                //移除空格，换行
-                collapseWhitespace: true,
-                //移除注释
-                removeComments: true
+                collapseWhitespace: true, //移除空格，换行
+                removeComments: true//移除注释
             },
         })
     ],
