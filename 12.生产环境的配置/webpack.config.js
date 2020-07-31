@@ -74,16 +74,16 @@ module.exports = {
                 //在package.json中eslintConfig指定airbnb规则
                 test: /\.js$/,
                 exclude: /node_modules/,
-                enforceL: 'pre',//优先处理
-                loader: 'eslint_loader',
+                enforce: 'pre',//优先处理
+                loader: 'eslint-loader',
                 options: {
-                    fix: true//自动修复出现的问题
+                    fix: true// 自动修复eslint的修复
                 }
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel_loader',
+                loader: 'babel-loader',
                 options: {
                     presets: [
                         [
@@ -127,15 +127,10 @@ module.exports = {
                 options: {
                     outputPath: 'media'
                 }
-
             }
-
-
-
         ]
     },
     plugins: [
-
         new HtmlWebpackPlugin({
             template: './src/index.html',
             minify: {
@@ -147,13 +142,18 @@ module.exports = {
             filename: 'css/built.css'
         }),
 
-        new OptimizeCssAssetsWebpackPlugin()
+        new OptimizeCssAssetsWebpackPlugin(),
     ],
+    // 启动devServer的命令：npx webpack-dev-server
+    devServer: {
+        contentBase: resolve(__dirname, 'build'), //项目构建后的路径
+        compress: true,// 启动gzip压缩
+        port: 8081,// 设置端口号
+        open: true, //自动打开浏览器
+    },
     // 生产环境下js代码自动压缩
     mode: 'production'
 }
-
-
 
 
 /*
