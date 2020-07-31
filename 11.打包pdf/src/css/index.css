@@ -1,0 +1,14 @@
+.box {
+    width: 800px;
+    height: 400px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
