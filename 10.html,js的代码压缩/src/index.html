@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webpack开发环境配置</title>
+</head>
+<style>
+    .option {
+        width: 100px;
+        border-radius: 3px;
+        position: relative;
+        border: 1px solid #666;
+        padding: 3px 0;
+    }
+
+    .option select {
+        border: none;
+        outline: none;
+        width: 100%;
+        /*隐藏select的下拉图标*/
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-left: 15px;
+        color: #666;
+    }
+
+    /*使用伪类给select添加自己想用的图标*/
+    .option:after {
+        content: "";
+        width: 32px;
+        height: 100%;
+        background-image: url(../src/img/xiajiantou.png);
+        /*通过定位将图标放在合适的位置*/
+        position: absolute;
+        right: 0;
+        top: 0;
+        pointer-events: none;
+        background-color: #666;
+    }
+</style>
+
+<body>
+    <div class="option">
+        <select class="sel" id="seloption" onchange="getVal()">
+            <option value=""></option>
+            <option value="1分足">1分足</option>
+            <option value="5分足">5分足</option>
+            <option value="10分足">10分足</option>
+            <option value="15分足">15分足</option>
+            <option value="1日足">1日足</option>
+            <option value="1週足">1週足</option>
+            <option value="1月足">1月足</option>
+        </select>
+    </div>
+    <a href="./pdf/account-regulation.pdf">dduudud[pdf]</a>
+</body>
+
+<script>
+    function getVal() {
+        var currentSel = document.getElementById('seloption');
+        var index = currentSel.selectedIndex;   //获取选中的索引值
+        var value = currentSel.options[index].value
+        console.log(value);   //获取选中的值
+    }
+</script>
+
+</html>

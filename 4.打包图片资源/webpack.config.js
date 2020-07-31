@@ -16,17 +16,19 @@ module.exports = {
                     "less-loader"
                 ]
             },
+            /*
+           注意：1. 多个loader用use[]，一个用loader,loader: 'url-loader',
+                2. 添加配置用options
+                3. 图片大小小于8kb，就会被base64处理
+                   优点：被base64处理了的，减少请求次数（减轻服务器的压力）
+                   缺点：图片会有一点大，（文件请求速度慢）
+            */
+
+            //问题：默认处理不了html中img图片
+            // 处理图片资源url-loader,file-loader
             {
-                //问题：默认处理不了html中img图片
-                // 处理图片资源url-loader,file-loader
                 test: /\.(jpg|png|gif)$/,
-                //多个loader用use，一个用loader
                 loader: 'url-loader',
-                /*添加配置用options
-                图片大小小于8kb，就会被base64处理
-                优点：被base64处理了的，减少请求次数（减轻服务器的压力）
-                缺点：图片会有一点大，（文件请求速度慢）
-                */
                 options: {
                     limit: 8 * 1024,
                     /*
@@ -35,7 +37,8 @@ module.exports = {
                     解决：关闭url-loader的es6模块化，使用commonjs解析
                     */
                     esModule: false,
-                    name: '[hash:10].[ext]'
+                    name: '[hash:10].[ext]',
+                    outputPath: 'imgs'
                     // 图片重命名
                     // [hash:10]取图片hash的前10位
                     // [ext]取文件原来的扩展名
