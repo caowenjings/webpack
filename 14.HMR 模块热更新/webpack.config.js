@@ -71,7 +71,7 @@ module.exports = {
             template: './src/index.html'
         }),
 
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin()//hrm热更新插件
     ],
     mode: "development",
     // 启动devServer的命令：npx webpack-dev-server
@@ -82,5 +82,4 @@ module.exports = {
         open: true,
         hot: true,//开启HRM功能
     }
-
 }
