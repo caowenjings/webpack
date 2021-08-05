@@ -104,6 +104,19 @@ module.exports = {
                         loader: 'html-loader' //处理html文件的img图片（负责引入img，从而能被url-loader进行处理)
                     },
                     {
+                        test: /\.(csv|tsv)$/,
+                        use: [{
+                            loader: "csv-loader",
+                            options: {
+                                name: '[name].[ext]',
+                                publicPath: './src/css',
+                                outputPath: './src/css',
+                                esModule: false,
+                            },
+                        }
+                        ]
+                    },
+                    {
                         exclude: /\.(js|css|less|html|jpg|png|gif)$/,//排除文件这些文件处理剩余的
                         loader: 'file-loader',
                         options: {
@@ -132,9 +145,10 @@ module.exports = {
     ],
     // 启动devServer的命令：npx webpack-dev-server
     devServer: {
+        host: '192.168.2.234',
         contentBase: resolve(__dirname, 'build'), //项目构建后的路径
         compress: true,// 启动gzip压缩
-        port: 8081,// 设置端口号
+        port: 3000,// 设置端口号
         open: true, //自动打开浏览器
     },
     // 生产环境下js代码自动压缩

@@ -22,3 +22,16 @@
 </body>
 
 </html>
+
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js"></script>
+<script>
+    $.ajax({
+        type: 'get',
+        url: './cvs/leverage/leverage.csv',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data)
+            // $("#div").text(data.time)
+        }
+    })
+</script>
